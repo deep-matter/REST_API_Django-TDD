@@ -18,12 +18,23 @@ the whole life-cycel web developmenet
     - Postgres (Database)
     - Swagger (Documentation APIs Schema)
 - **TDD** (test Driven developmenet)
+
   as long as goes along with project we will do Unit Test of our APIs following
   process of TDD that will help us to produce more Quality work and maintenbel code 
+
 - **Swagger:**
+
    this tool we will help to document our APIs workflow
+
+- **Postman:**
+
+APIs testing is software allow us to test EndPoints interact with Database
+
 - **Docker:**
+
   for more professional developmenet we will use Docker Compose to Dockerize our Services 
-  to make CI/CD deployment easy setup and track 
+  to make CI/CD deployment easy setup and track
+
 - **github action:**
+
   automation deployment Ci/CD we will implement Scrtip Yaml to deployment the service in AWS 
