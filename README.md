@@ -28,7 +28,7 @@ the whole life-cycel web developmenet
 
 - **Postman:**
 
-APIs testing is software allow us to test EndPoints interact with Database
+   APIs testing is software allow us to test EndPoints interact with Database
 
 - **Docker:**
 
