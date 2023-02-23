@@ -37,4 +37,32 @@ the whole life-cycel web developmenet
 
 - **github action:**
 
-  automation deployment Ci/CD we will implement Scrtip Yaml to deployment the service in AWS 
+  automation deployment Ci/CD we will implement Scrtip Yaml to deployment the service in AWS
+### Setup the Envirement 
+
+- **intialize ENV**
+
+we will need to create our Own **ENV** which only contain desirble packages following
+
+  - create ENV
+
+      ```python 
+         virtualenv -name reciep_app python==3.9 
+      ```
+  - active ENV 
+     
+      ```python
+      source reciep_app/bin/actived
+      ```
+
+  - creat source app folder django **dev**
+
+      ```python 
+      django-admin startproject dev
+     ```
+- **addtional used software in this project**
+
+    - Docker 
+    - Postman 
+    - Postgers Admin 
+
