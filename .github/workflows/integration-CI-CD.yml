@@ -37,12 +37,15 @@ jobs:
       -
         name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
+
+      # Auth to docker hub     
       -
         name: Docker-login
         uses: docker/login-action@2
         with:
           username: ${{ secrets.DOCKERHUB_USER }}
           password: ${{ secrets.DOCKERHUB.TOKEN }}
+      # Buidling and pushing image to docker repo       
       - 
         name: build and push images to DOCKERHUB
         uses: docker/build-push-action@v4
