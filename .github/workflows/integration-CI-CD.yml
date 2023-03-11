@@ -6,6 +6,10 @@ on:
   pull_request: 
     branches: ["Git-Action"]
 
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+
 jobs:
   # name of the jobs
   building-django-app:
@@ -54,7 +58,7 @@ jobs:
           push: true
           tags: younessbg/rest_apis_django:latset
           secrets: |
-                    GIT_AUTH_TOKEN= ${{ secrets.GIT_AUTH }}
+            GIT_AUTH_TOKEN= ${{ secrets.GIT_AUTH }}
 
   GitHub-Container-Registry:
     needs: ["building-django-app","Docker-Setup"]
@@ -72,8 +76,8 @@ jobs:
           password: ${{ secrets.GIT_AUTH }}
       - 
         name: Building image and push to GHCR
-        run: |
-              docker build . --tag ghcr.io/deep-matter/restapp-build:latest
-              docker run ghcr.io/deep-matter/restapp-build:latest
-              docker push ghcr.io/deep-matter/restapp-build:latest
-                  
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          push: true
+          tags: ghcr.io/${{ github.repository }}:${{ github.sha }}
