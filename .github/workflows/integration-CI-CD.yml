@@ -8,7 +8,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: rest_apis_django
+  IMAGE_NAME: 'rest_apis_django'
 
 jobs:
   # name of the jobs
