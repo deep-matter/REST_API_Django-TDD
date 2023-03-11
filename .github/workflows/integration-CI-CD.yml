@@ -2,9 +2,9 @@ name: CI/CD intergration Django app
 # Trigger type used in actions PUSH
 on:
   push:
-    branches: ["master"]
+    branches: ["main"]
   pull_request: 
-    branches: ["master"]
+    branches: ["main"]
 
 jobs:
   # name of the jobs
