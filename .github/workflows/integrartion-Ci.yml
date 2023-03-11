@@ -1,0 +1,65 @@
+name: CI/CD intergration Django app
+# Trigger type used in actions PUSH
+on:
+  push:
+    branches: ["master"]
+  pull_requets: 
+    branches: ["master"]
+
+jobs:
+  # name of the jobs
+  building-django-app:
+    # type OS used to build top on ubuntu because is has already docker and docker-compose pre-installed 
+    runs-on: ubuntu-latset
+    # define the Step to run in this JOB  
+    steps:
+      -
+        name: checking repo code 
+        uses: action/checkout@v2
+      -
+        name: running Unite test
+        run: docker-compose --rm app sh -c "python manage.py"
+      -
+        name: Linting formater
+        run: docker-compose --rm app -sh c "flake8"
+# in this Job building Docker image and push into docker-hub with GIT_AUTH_TOKEN to secure repo access
+# this job will be depends on building-django-app 
+  Docker-Setup:
+    needs: building-django-app
+    runs-on: ubuntu-latset
+    steps:
+      -
+        name: Checkout
+        uses: actions/checkout@v3
+      -
+        name: Set up QEMU
+        uses: docker/setup-qemu-action@v2
+      -
+        name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+      -
+        name: Docker-login
+        uses: docker/login-action@2
+        with:
+          username: ${{
+            secrets.DOCKERHUB_USER
+        }}
+          password: ${{ 
+      secrets.DOCKERHUB.TOKEN 
+    }}
+      - 
+        name: build and push images to docker-hub
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          push: true
+          tags: younessbg/rest_apis_django:latset
+          secrets: |
+            GIT_AUTH_TOKEN= ${{
+              secrets.GIT_AUTH
+          }}
+
+
+      
+  
+  
