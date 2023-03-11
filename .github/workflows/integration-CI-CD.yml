@@ -41,12 +41,8 @@ jobs:
         name: Docker-login
         uses: docker/login-action@2
         with:
-          username: ${{
-            secrets.DOCKERHUB_USER
-        }}
-          password: ${{ 
-      secrets.DOCKERHUB.TOKEN 
-    }}
+          username: ${{ secrets.DOCKERHUB_USER }}
+          password: ${{ secrets.DOCKERHUB.TOKEN }}
       - 
         name: build and push images to docker-hub
         uses: docker/build-push-action@v4
@@ -59,7 +55,3 @@ jobs:
               secrets.GIT_AUTH
           }}
 
-
-      
-  
-  
