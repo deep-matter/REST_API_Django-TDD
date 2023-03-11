@@ -44,14 +44,12 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USER }}
           password: ${{ secrets.DOCKERHUB.TOKEN }}
       - 
-        name: build and push images to docker-hub
+        name: build and push images to DOCKERHUB
         uses: docker/build-push-action@v4
         with:
           context: .
           push: true
           tags: younessbg/rest_apis_django:latset
           secrets: |
-            GIT_AUTH_TOKEN= ${{
-              secrets.GIT_AUTH
-          }}
+            GIT_AUTH_TOKEN= ${{ secrets.GIT_AUTH }}
 
