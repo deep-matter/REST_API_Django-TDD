@@ -10,7 +10,7 @@ jobs:
   # name of the jobs
   building-django-app:
     # type OS used to build top on ubuntu because is has already docker and docker-compose pre-installed 
-    runs-on: ubuntu-latset
+    runs-on: ubuntu-20.04
     # define the Step to run in this JOB  
     steps:
       -
@@ -26,7 +26,7 @@ jobs:
 # this job will be depends on building-django-app 
   Docker-Setup:
     needs: building-django-app
-    runs-on: ubuntu-latset
+    runs-on: ubuntu-20.04
     steps:
       -
         name: Checkout
