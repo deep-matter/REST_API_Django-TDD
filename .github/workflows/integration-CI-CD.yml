@@ -8,7 +8,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }}
+  IMAGE_NAME: rest_apis_django
 
 jobs:
   # name of the jobs
@@ -63,6 +63,10 @@ jobs:
   GitHub-Container-Registry:
     needs: ["building-django-app","Docker-Setup"]
     runs-on: ubuntu-20.04
+    permissions:
+      contents: read
+      packages: write
+
     steps:
       -
         name: Checkout
@@ -71,13 +75,21 @@ jobs:
         name: login to GitHub Container Registry
         uses: docker/login-action@v2
         with:
-          registry: ghcr.io 
+          registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.GIT_AUTH }}
       - 
-        name: Building image and push to GHCR
+        name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@v2
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+
+      - 
+        name: Build and push Docker image
         uses: docker/build-push-action@v2
         with:
           context: .
           push: true
-          tags: ghcr.io/${{ github.repository }}:${{ github.sha }}
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
