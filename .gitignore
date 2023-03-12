@@ -103,6 +103,7 @@ celerybeat.pid
 
 # Environments
 .env
+.secrets_AUTH_GIT.txt
 .venv
 env/
 venv/
