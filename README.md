@@ -110,10 +110,9 @@ we will need to create our Own **ENV** which only contain desirble packages foll
       docker run --name=container_django_app -p 8000:8000 django_docker_image
     ```
   - Docker-compose :
+      - decription: we also used docker-compose to create Image and runnthe service as long as the app get complicated we will need to run multi-Services at once . in this stage **Docker-compose** is good tool use here simple docker-compose file configuration: 
 
-     - decription: we also used docker-compose to create Image and runnthe service as long as the app get complicated we will need to run multi-Services at once . in this stage **Docker-compose** is good tool use here simple docker-compose file configuration: 
-
-      ```yaml
+        ```yaml
 
       version: "3.9"
 
@@ -128,7 +127,7 @@ we will need to create our Own **ENV** which only contain desirble packages foll
             - ./app:/app
           command: >
             sh -c "python manage.py runserver 0.0.0.0:8000"
-      ```
+        ```
 #### Git-Hub Action Automated Deployment [Check Branch Git-Action](https://github.com/deep-matter/REST_API_Django-TDD/tree/setupEnv)
 
 - Github Action :
