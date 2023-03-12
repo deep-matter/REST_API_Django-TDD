@@ -74,7 +74,8 @@ we will need to create our Own **ENV** which only contain desirble packages foll
     
     - Description : in this Branch we create our Own image that containe all the neccessry Package to hold our ENV to work in Django this is simple example how to create **Dockerfile** 
 
-    ```docker
+    ```yaml
+
       FROM python:3.9-apline13.3 
 
       ENV PYTHONNOTWRITEBITYCODE 1 
@@ -97,8 +98,8 @@ we will need to create our Own **ENV** which only contain desirble packages foll
           django-user \
       
       USER django-user
-
     ```
+
     - **COMMAND** : the command to run the docker and create the image 
 
     ```sh
@@ -110,7 +111,7 @@ we will need to create our Own **ENV** which only contain desirble packages foll
       docker run --name=container_django_app -p 8000:8000 django_docker_image
     ```
   - Docker-compose :
-      * decription: we also used docker-compose to create Image and runnthe service as long as the app get complicated we will need to run multi-Services at once . in this stage **Docker-compose** is good tool use here simple docker-compose file configuration 
+      * decription: we also used docker-compose to create Image and runnthe service as long as the app get complicated we will need to run multi-Services at once . in this stage **Docker-compose** is good tool use here simple docker-compose file configuration </br>
 
     ```yaml
 
@@ -131,18 +132,16 @@ we will need to create our Own **ENV** which only contain desirble packages foll
     ```
 #### Git-Hub Action Automated Deployment [Check Branch Git-Action](https://github.com/deep-matter/REST_API_Django-TDD/tree/setupEnv)
 
-* Github Action :
+- Github Action :
+    - Defenition : somehow when the application has many features to work on and manage and test , the manule setup make the workfolw be pain in ass to deal with , here github action provide us Automated Piplien for CI-CD which stand fro **continuies integartion-Contiunes Delivery**
 
-      - Defenition : somehow when the application has many features to work on and manage and test , the manule setup make the workfolw be pain in ass to deal with , here github action provide us Automated Piplien for CI-CD which stand fro **continuies integartion-Contiunes Delivery**
+    - the Basic :
+      * automated Testing 
+      * automated Dockerize app 
+      * automated checking Branch Pull request at **the Event**
+      * automated Deploymenet
 
-      - the Basic :
-
-          * automated Testing 
-          * automated Dockerize app 
-          * automated checking Branch Pull request at **the Event**
-          * automated Deploymenet
-
-      - configuration YAML file:
+    - configuration YAML file:
 
         ```yaml 
 
@@ -170,7 +169,7 @@ we will need to create our Own **ENV** which only contain desirble packages foll
                     run: docker-compose run --rm sh -c "flake8"
         ```
 
-      - Run the workflow github action using Git-CLI 
+    - Run the workflow github action using Git-CLI 
 
         ```sh 
           gh run RUN_ID:115478658 
