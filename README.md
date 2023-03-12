@@ -69,12 +69,11 @@ we will need to create our Own **ENV** which only contain desirble packages foll
 
 ##### Docker Start Config-files [Check Branch SetupEnv](https://github.com/deep-matter/REST_API_Django-TDD/tree/Git-Action)
 
-* Create the image using Docker 
-  - Dockerfile
+- Create the image using Docker 
     
-    - Description : in this Branch we create our Own image that containe all the neccessry Package to hold our ENV to work in Django this is simple example how to create **Dockerfile** 
+  - Description : in this Branch we create our Own image that containe all the neccessry Package to hold our ENV to work in Django this is simple example how to create **Dockerfile** 
 
-    ```yaml
+    ```docker
 
       FROM python:3.9-apline13.3 
 
@@ -100,7 +99,7 @@ we will need to create our Own **ENV** which only contain desirble packages foll
       USER django-user
     ```
 
-    - **COMMAND** : the command to run the docker and create the image 
+  - build and run commands : the command to run the docker and create the image 
 
     ```sh
       docker build --tag django_docker_image . 
@@ -111,7 +110,7 @@ we will need to create our Own **ENV** which only contain desirble packages foll
       docker run --name=container_django_app -p 8000:8000 django_docker_image
     ```
   - Docker-compose :
-      * decription: we also used docker-compose to create Image and runnthe service as long as the app get complicated we will need to run multi-Services at once . in this stage **Docker-compose** is good tool use here simple docker-compose file configuration </br>
+      - decription: we also used docker-compose to create Image and runnthe service as long as the app get complicated we will need to run multi-Services at once . in this stage **Docker-compose** is good tool use here simple docker-compose file configuration: 
 
     ```yaml
 
