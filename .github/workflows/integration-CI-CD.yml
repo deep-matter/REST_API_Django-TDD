@@ -2,9 +2,9 @@ name: CI/CD intergration Django app
 # Trigger type used in actions PUSH
 on:
   push:
-    branches: ["Git-Action"]
+    branches: ["test-driven"]
   pull_request: 
-    branches: ["Git-Action"]
+    branches: ["test-driven"]
 
 env:
   REGISTRY: ghcr.io
