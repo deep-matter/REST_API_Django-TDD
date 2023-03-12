@@ -73,7 +73,7 @@ we will need to create our Own **ENV** which only contain desirble packages foll
     
   - Description : in this Branch we create our Own image that containe all the neccessry Package to hold our ENV to work in Django this is simple example how to create **Dockerfile** 
 
-    ```docker
+    ```yaml
 
       FROM python:3.9-apline13.3 
 
@@ -110,7 +110,8 @@ we will need to create our Own **ENV** which only contain desirble packages foll
       docker run --name=container_django_app -p 8000:8000 django_docker_image
     ```
   - Docker-compose :
-      - decription: we also used docker-compose to create Image and runnthe service as long as the app get complicated we will need to run multi-Services at once . in this stage **Docker-compose** is good tool use here simple docker-compose file configuration: 
+
+     - decription: we also used docker-compose to create Image and runnthe service as long as the app get complicated we will need to run multi-Services at once . in this stage **Docker-compose** is good tool use here simple docker-compose file configuration: 
 
     ```yaml
 
