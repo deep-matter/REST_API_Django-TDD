@@ -41,7 +41,7 @@ the whole life-cycel web developmenet
   automation deployment Ci/CD we will implement Scrtip Yaml to deployment the service in AWS
 ### Setup the Envirement 
 
-- **intialize Envirement in tradional way **
+- **intialize Envirement in tradional way**
 
 we will need to create our Own **ENV** which only contain desirble packages following
 
@@ -67,7 +67,7 @@ we will need to create our Own **ENV** which only contain desirble packages foll
     - Postman 
     - Postgers Admin 
 
-##### Docker Start Config-files [Check Branch SetupEnv](https://github.com/deep-matter/REST_API_Django-TDD/tree/Git-Action)
+#### Docker Start Config-files [Check Branch SetupEnv](https://github.com/deep-matter/REST_API_Django-TDD/tree/Git-Action)
 
 - Create the image using Docker 
     
