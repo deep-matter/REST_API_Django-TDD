@@ -1,4 +1,4 @@
-name: CI/CD intergration Django app
+name: CI/CD Deployment Django app
 # Trigger type used in actions PUSH
 on:
   push:
